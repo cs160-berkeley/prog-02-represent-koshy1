@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Represent</string>
+
+    <string name="fragment_onboarding_zip_code_label_text">Zip code</string>
+    <string name="fragment_onboarding_zip_code_entry_hint">94087</string>
+    <string name="fragment_onboarding_submit_button_text">Next</string>
+    <string name="fragment_onboarding_zip_code_default">95014</string>
+    <string name="fragment_onboarding_zip_code_error_title">Error</string>
+    <string name="fragment_onboarding_zip_code_error_message">Please enter a valid zip code.</string>
+
+    <string name="position_label_text">Position</string>
+    <string name="party_label_text">Party</string>
+    <string name="end_date_label_text">Term End Date</string>
+
+    <string name="email_label_text">EMAIL</string>
+    <string name="website_label_text">WEBSITE</string>
+
+    <string name="twitter_card_title">Twitter</string>
+    <string name="committees_card_title">Committees</string>
+    <string name="recent_bills_card_title">Recent Bills</string>
+</resources>

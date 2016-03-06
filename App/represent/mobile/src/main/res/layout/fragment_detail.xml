@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/represent_app_background">
+
+    <RelativeLayout
+        android:id="@+id/fragment_detail_actionbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:id="@+id/fragment_detail_actionbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_height"
+                android:orientation="horizontal"
+                android:background="@color/represent_red">
+
+            <Button
+                android:id="@+id/fragment_detail_back_button"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/action_bar_item_size"
+                android:layout_height="@dimen/action_bar_item_size"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/back_button"/>
+
+            <TextView
+                android:id="@+id/fragment_detail_actionbar_title"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/action_bar_title_size"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_below="@id/fragment_detail_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_shadow_height"
+            android:background="@drawable/shadow" />
+
+    </RelativeLayout>
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-4dp"
+        android:layout_below="@id/fragment_detail_actionbar_container">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/profile_card"
+                android:id="@+id/fragment_detail_profile_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+
+            <include layout="@layout/twitter_card"
+                android:id="@+id/fragment_detail_twitter_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+
+            <include layout="@layout/committees_card"
+                android:id="@+id/fragment_detail_committees_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp" />
+
+            <include layout="@layout/recent_bills_card"
+                android:id="@+id/fragment_detail_recent_bills_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

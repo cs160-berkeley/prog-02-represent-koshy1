@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Represent</string>
+
+    <string name="profile_card_position_label_text">Position</string>
+    <string name="profile_card_party_label_text">Party</string>
+
+    <string name="activity_main_label_text">Shake to select random location</string>
+
+    <string name="notification_profile_card_text">Swipe to view representatives</string>
+    <string name="notification_election_results_card_text">Swipe to view election results</string>
+</resources>

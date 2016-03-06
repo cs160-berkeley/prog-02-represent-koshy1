@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/represent_app_background">
+
+    <RelativeLayout
+        android:id="@+id/fragment_list_actionbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/fragment_list_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:orientation="horizontal"
+            android:background="@color/represent_red">
+
+            <Button
+                android:id="@+id/fragment_list_back_button"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/action_bar_item_size"
+                android:layout_height="@dimen/action_bar_item_size"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/back_button"/>
+
+            <TextView
+                android:id="@+id/fragment_list_actionbar_title"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/action_bar_title_size"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_below="@id/fragment_list_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_shadow_height"
+            android:background="@drawable/shadow" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/fragment_list_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:layout_marginTop="-4dp"
+        android:divider="@android:color/transparent"
+        android:layout_below="@+id/fragment_list_actionbar_container"
+        android:paddingTop="15dp" />
+
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/represent_red">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="110dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/fragment_onboarding_zip_code_container" />
+
+    <RelativeLayout
+        android:id="@+id/fragment_onboarding_zip_code_container"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" >
+
+        <View
+            android:id="@+id/fragment_onboarding_focusable_view"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px"/>
+
+        <TextView
+            android:id="@+id/fragment_onboarding_zip_code_label"
+            android:text="@string/fragment_onboarding_zip_code_label_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/fragment_onboarding_zip_code_entry"
+            android:layout_below="@id/fragment_onboarding_zip_code_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/fragment_onboarding_zip_code_entry_hint"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"
+            android:textColorHint="@color/represent_transparent_white"
+            android:backgroundTint="@android:color/white"/>
+
+        <Button
+            android:id="@+id/fragment_onboarding_location_button"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/fragment_onboarding_zip_code_entry"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/location" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/fragment_onboarding_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/represent_dark_red"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/fragment_onboarding_zip_code_container"
+        android:text="@string/fragment_onboarding_submit_button_text" />
+
+</RelativeLayout>

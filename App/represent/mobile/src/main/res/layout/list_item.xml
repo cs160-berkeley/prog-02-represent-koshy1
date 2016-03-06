@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/list_item_card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardBackgroundColor="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/list_item_representative_image"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/list_item_representative_name"
+                android:layout_toRightOf="@+id/list_item_representative_image"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/represent_red"/>
+
+            <TextView
+                android:id="@+id/list_item_representative_position"
+                android:layout_below="@+id/list_item_representative_name"
+                android:layout_toRightOf="@+id/list_item_representative_image"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="35dp"
+                android:textSize="14sp"
+                android:textColor="@color/text_dark_gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/list_item_representative_position_label"
+                android:layout_below="@+id/list_item_representative_position"
+                android:layout_toRightOf="@+id/list_item_representative_image"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/text_dark_gray"
+                android:text="@string/position_label_text"/>
+
+            <TextView
+                android:id="@+id/list_item_representative_party"
+                android:layout_below="@+id/list_item_representative_position"
+                android:layout_toRightOf="@+id/list_item_representative_image"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dark_gray"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/list_item_representative_party_label"
+                android:layout_below="@+id/list_item_representative_party"
+                android:layout_toRightOf="@+id/list_item_representative_image"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/text_dark_gray"
+                android:text="@string/party_label_text"/>
+
+            <View
+                android:id="@+id/list_item_border"
+                android:layout_below="@+id/list_item_representative_party_label"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="15dp"
+                android:layout_height="1dp"
+                android:background="@color/text_light_gray" />
+
+            <TextView
+                android:id="@+id/list_item_email"
+                android:layout_below="@+id/list_item_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/represent_red"
+                android:text="@string/email_label_text"/>
+
+            <TextView
+                android:id="@+id/list_item_website"
+                android:layout_toRightOf="@+id/list_item_email"
+                android:layout_below="@+id/list_item_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/represent_red"
+                android:text="@string/website_label_text"/>
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:id="@+id/fragment_onboarding_location_button"
+                android:layout_width="9dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/more_info" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
