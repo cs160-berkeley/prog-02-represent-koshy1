@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements OnboardingFragment.Onboard
           if (listFragment.getZipCode().equals("95014")) {
             newZipCode = "94087";
           }
-          listFragment.setZipCode(newZipCode);
+          listFragment.updateZipCode(newZipCode);
         } else {
           startListFragment("94087");
         }
@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements OnboardingFragment.Onboard
       public void onReceive(Context context, Intent intent) {
         CongressPerson congressPerson = intent.getParcelableExtra(IntentUtil.ExtraIdentifiers.ITEM.getValue());
         if (detailFragment != null && detailFragment.isAdded()) {
-          detailFragment.setCongressPerson(congressPerson);
+          detailFragment.updateCongressPerson(congressPerson);
         } else {
           startDetailFragment(congressPerson);
         }

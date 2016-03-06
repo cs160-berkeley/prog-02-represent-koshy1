@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -33,12 +32,6 @@ public class ProfileCardController {
     website = (TextView) layout.findViewById(R.id.profile_card_website);
 
     this.context = context;
-  }
-
-  public static ProfileCardController getController(Context context, ViewGroup parent) {
-    LayoutInflater inflater = LayoutInflater.from(context);
-    ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.profile_card, parent, false);
-    return takeControl(context, layout);
   }
 
   public static ProfileCardController takeControl(Context context, ViewGroup layout) {

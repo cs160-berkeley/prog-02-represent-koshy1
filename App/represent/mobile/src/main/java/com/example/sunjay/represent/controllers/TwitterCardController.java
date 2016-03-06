@@ -1,7 +1,6 @@
 package com.example.sunjay.represent.controllers;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
@@ -18,12 +17,6 @@ public class TwitterCardController {
     timestamp = (TextView) layout.findViewById(R.id.twitter_card_timestamp);
 
     this.context = context;
-  }
-
-  public static TwitterCardController getController(Context context, ViewGroup parent) {
-    LayoutInflater inflater = LayoutInflater.from(context);
-    ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.twitter_card, parent, false);
-    return takeControl(context, layout);
   }
 
   public static TwitterCardController takeControl(Context context, ViewGroup layout) {

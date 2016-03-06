@@ -1,4 +1,4 @@
-package com.example.sunjay.modelsandutils.models;
+package com.example.sunjay.represent.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -28,8 +28,8 @@ public class ElectionResult implements Parcelable {
     out.writeInt(democrat_vote);
   }
 
-  public static final Creator<ElectionResult> CREATOR
-    = new Creator<ElectionResult>() {
+  public static final Parcelable.Creator<ElectionResult> CREATOR
+    = new Parcelable.Creator<ElectionResult>() {
     public ElectionResult createFromParcel(Parcel in) {
       return new ElectionResult(in);
     }

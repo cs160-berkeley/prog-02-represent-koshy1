@@ -13,8 +13,8 @@ public class API {
   private static API apiSingleton;
   private Context context;
 
-  private static ArrayList<CongressPerson> placeholderCongressPeople95014 = new ArrayList<>();
-  private static ArrayList<CongressPerson> placeholderCongressPeopleOther = new ArrayList<>();
+  private static ArrayList<CongressPerson> placeholderCongressPeople95014;
+  private static ArrayList<CongressPerson> placeholderCongressPeopleOther;
   private static ElectionResult electionResults;
 
   public API(Context context) {

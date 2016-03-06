@@ -17,14 +17,14 @@ public class WatchShakeListener implements SensorEventListener {
   private static final int Y = 1;
   private static final int Z = 2;
 
-  private OnShakeListener mShakeListener;
+  private OnShakeListener shakeListener;
 
   long startTime = 0;
 
   int moveCount = 0;
 
   public WatchShakeListener(OnShakeListener shakeListener) {
-    mShakeListener = shakeListener;
+    this.shakeListener = shakeListener;
   }
 
   @Override
@@ -44,7 +44,7 @@ public class WatchShakeListener implements SensorEventListener {
       else {
         moveCount++;
         if (moveCount > MIN_MOVEMENTS) {
-          mShakeListener.onShake();
+          shakeListener.onShake();
           resetShakeDetection();
         }
       }

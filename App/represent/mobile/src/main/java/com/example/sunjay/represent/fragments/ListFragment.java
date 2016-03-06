@@ -58,11 +58,11 @@ public class ListFragment extends RepresentFragment implements ListAdapter.ListA
       }
     });
 
-    setZipCode(zipCode);
+    updateZipCode(zipCode);
     return view;
   }
 
-  public void setZipCode(String zipCode) {
+  public void updateZipCode(String zipCode) {
     this.zipCode = zipCode;
     title.setText(zipCode);
 
@@ -103,7 +103,7 @@ public class ListFragment extends RepresentFragment implements ListAdapter.ListA
   }
 
   public String getZipCode() {
-    return getZipCode();
+    return zipCode;
   }
 
   @Override

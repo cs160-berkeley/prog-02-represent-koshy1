@@ -33,11 +33,11 @@ public class DetailFragment extends RepresentFragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     layout = inflater.inflate(R.layout.fragment_detail, container, false);
-    setCongressPerson(congressPerson);
+    updateCongressPerson(congressPerson);
     return layout;
   }
   
-  public void setCongressPerson(CongressPerson congressPerson) {
+  public void updateCongressPerson(CongressPerson congressPerson) {
     this.congressPerson = congressPerson;
     TextView title = (TextView) layout.findViewById(R.id.fragment_detail_actionbar_title);
     title.setText(congressPerson.name);

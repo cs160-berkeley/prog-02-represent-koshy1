@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -37,12 +36,6 @@ public class ListItemController {
 
     this.context = context;
     this.listener = listener;
-  }
-
-  public static ListItemController getController(Context context, ViewGroup parent, final ListItemController.ListItemControllerListener listener) {
-    LayoutInflater inflater = LayoutInflater.from(context);
-    ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.list_item, parent, false);
-    return takeControl(context, layout, listener);
   }
 
   public static ListItemController takeControl(Context context, ViewGroup layout, final ListItemController.ListItemControllerListener listener) {

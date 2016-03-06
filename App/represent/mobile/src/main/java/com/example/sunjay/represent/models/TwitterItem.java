@@ -1,4 +1,4 @@
-package com.example.sunjay.modelsandutils.models;
+package com.example.sunjay.represent.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -20,8 +20,8 @@ public class TwitterItem implements Parcelable {
     out.writeString(created_at);
   }
 
-  public static final Creator<TwitterItem> CREATOR
-    = new Creator<TwitterItem>() {
+  public static final Parcelable.Creator<TwitterItem> CREATOR
+    = new Parcelable.Creator<TwitterItem>() {
     public TwitterItem createFromParcel(Parcel in) {
       return new TwitterItem(in);
     }

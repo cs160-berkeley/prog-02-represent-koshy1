@@ -1,4 +1,4 @@
-package com.example.sunjay.modelsandutils.models;
+package com.example.sunjay.represent.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -22,8 +22,8 @@ public class NotificationCardCount implements Parcelable {
     out.writeInt(count);
   }
 
-  public static final Creator<NotificationCardCount> CREATOR
-    = new Creator<NotificationCardCount>() {
+  public static final Parcelable.Creator<NotificationCardCount> CREATOR
+    = new Parcelable.Creator<NotificationCardCount>() {
     public NotificationCardCount createFromParcel(Parcel in) {
       return new NotificationCardCount(in);
     }

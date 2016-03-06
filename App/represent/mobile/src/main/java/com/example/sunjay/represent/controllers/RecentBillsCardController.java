@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
@@ -23,12 +22,6 @@ public class RecentBillsCardController {
     text = (TextView) layout.findViewById(R.id.recent_bills_card_text);
 
     this.context = context;
-  }
-
-  public static RecentBillsCardController getController(Context context, ViewGroup parent) {
-    LayoutInflater inflater = LayoutInflater.from(context);
-    ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.recent_bills_card, parent, false);
-    return takeControl(context, layout);
   }
 
   public static RecentBillsCardController takeControl(Context context, ViewGroup layout) {
@@ -59,9 +52,8 @@ public class RecentBillsCardController {
         recentBillsSpannableStringBuilder.append("\n");
         start += 1;
       }
-      recentBillsSpannableStringBuilder.clear();
     }
-
     text.setText(recentBillsSpannableStringBuilder);
+    recentBillsSpannableStringBuilder.clear();
   }
 }

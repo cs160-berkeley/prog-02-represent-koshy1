@@ -1,4 +1,4 @@
-package com.example.sunjay.modelsandutils.models;
+package com.example.sunjay.represent.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -18,8 +18,8 @@ public class CommitteeItem implements Parcelable {
     out.writeString(name);
   }
 
-  public static final Creator<CommitteeItem> CREATOR
-    = new Creator<CommitteeItem>() {
+  public static final Parcelable.Creator<CommitteeItem> CREATOR
+    = new Parcelable.Creator<CommitteeItem>() {
     public CommitteeItem createFromParcel(Parcel in) {
       return new CommitteeItem(in);
     }

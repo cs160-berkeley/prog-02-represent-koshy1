@@ -1,4 +1,4 @@
-package com.example.sunjay.modelsandutils.util;
+package com.example.sunjay.represent.util;
 
 import android.os.Parcel;
 import android.os.Parcelable;

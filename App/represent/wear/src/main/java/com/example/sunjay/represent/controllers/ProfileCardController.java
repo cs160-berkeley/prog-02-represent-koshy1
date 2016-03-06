@@ -1,7 +1,6 @@
 package com.example.sunjay.represent.controllers;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -27,12 +26,6 @@ public class ProfileCardController {
 
     this.context = context;
     this.listener = listener;
-  }
-
-  public static ProfileCardController getController(Context context, ViewGroup parent, final ProfileCardControllerListener listener) {
-    LayoutInflater inflater = LayoutInflater.from(context);
-    ViewGroup layout = (ViewGroup) inflater.inflate(R.layout.profile_card, parent, false);
-    return takeControl(context, layout, listener);
   }
 
   public static ProfileCardController takeControl(Context context, ViewGroup layout, final ProfileCardControllerListener listener) {
