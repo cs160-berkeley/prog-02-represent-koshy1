@@ -1,6 +1,7 @@
 # PROG 02: Represent!
 
 Note: My submission for Phase B is commit fc38729 ("More fixes")
+
 Briefly describe your app here.
 
 ## Authors
