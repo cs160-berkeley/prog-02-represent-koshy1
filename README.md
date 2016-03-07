@@ -1,14 +1,15 @@
 # PROG 02: Represent!
 
+Note: My submission for Phase B is commit fc38729 ("More fixes")
 Briefly describe your app here.
 
 ## Authors
 
-FirstName LastName ([your_email@berkeley.edu](mailto:your_email@berkeley.edu))
+Sunjay Koshy ([koshy1@berkeley.edu](mailto:koshy1@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [PROG 2B Demo Video] (https://www.youtube.com/watch?v=ANTnt1SpS6s)
 
 ## Screenshots
 
