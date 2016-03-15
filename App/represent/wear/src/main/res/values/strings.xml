@@ -4,8 +4,13 @@
     <string name="profile_card_position_label_text">Position</string>
     <string name="profile_card_party_label_text">Party</string>
 
-    <string name="activity_main_label_text">Shake to select random location</string>
+    <string name="profile_card_action_text">Tap to open on device</string>
 
-    <string name="notification_profile_card_text">Swipe to view representatives</string>
-    <string name="notification_election_results_card_text">Swipe to view election results</string>
+    <string name="election_results_card_title_text">2012 Election Results</string>
+    <string name="election_results_card_action_text">Swipe left to view representatives</string>
+
+    <string name="empty_state_message">Pick a random location by opening the mobile app and shaking your watch.</string>
+
+    <string name="democratic_candidate_name">Obama</string>
+    <string name="republican_candidate_name">Romney</string>
 </resources>

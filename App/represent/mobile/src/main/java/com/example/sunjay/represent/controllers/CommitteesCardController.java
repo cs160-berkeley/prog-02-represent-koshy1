@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
-import com.example.sunjay.represent.models.CommitteeItem;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CommitteeItem;
 
 import java.util.List;
 
@@ -30,10 +30,10 @@ public class CommitteesCardController {
 
     StringBuilder committeeFormattedStringBuilder = new StringBuilder();
     for (int i = 0; i < committeeItems.size() - 1; i++) {
-      committeeFormattedStringBuilder.append(committeeItems.get(i).name);
+      committeeFormattedStringBuilder.append(committeeItems.get(i).getCommonName());
       committeeFormattedStringBuilder.append("\n");
     }
-    committeeFormattedStringBuilder.append(committeeItems.get(committeeItems.size() - 1).name);
+    committeeFormattedStringBuilder.append(committeeItems.get(committeeItems.size() - 1).getCommonName());
     text.setText(committeeFormattedStringBuilder.toString());
     committeeFormattedStringBuilder.setLength(0);
   }

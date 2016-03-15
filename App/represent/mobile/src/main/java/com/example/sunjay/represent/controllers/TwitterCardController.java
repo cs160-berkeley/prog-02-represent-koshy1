@@ -4,7 +4,10 @@ import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
-import com.example.sunjay.represent.models.TwitterItem;
+import com.example.sunjay.represent.shared.models.TwitterItem;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.ocpsoft.prettytime.PrettyTime;
 
 public class TwitterCardController {
   private TextView text;
@@ -24,7 +27,8 @@ public class TwitterCardController {
   }
 
   public void configureWithDataItem(final TwitterItem twitterItem) {
-    text.setText(twitterItem.text);
-    timestamp.setText(twitterItem.created_at);
+    DateTime twitterDateTime = DateTime.parse(twitterItem.date, DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss +SSSS yyyy"));
+    text.setText("\"" + twitterItem.text + "\"");
+    timestamp.setText(new PrettyTime().format(twitterDateTime.toDate()));
   }
 }

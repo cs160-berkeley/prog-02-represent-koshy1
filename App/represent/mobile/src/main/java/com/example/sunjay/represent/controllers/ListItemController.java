@@ -3,14 +3,14 @@ package com.example.sunjay.represent.controllers;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
-import com.example.sunjay.represent.models.CongressPerson;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CongressPerson;
+import com.squareup.picasso.Picasso;
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class ListItemController {
   private ListItemControllerListener listener;
@@ -19,20 +19,20 @@ public class ListItemController {
   private TextView name;
   private TextView role;
   private TextView party;
-  private TextView email;
-  private TextView website;
-  private CardView cardView;
+  private ImageView email;
+  private ImageView website;
+  private View cardView;
 
   private Context context;
 
   private ListItemController(Context context, ViewGroup layout, final ListItemController.ListItemControllerListener listener) {
-    cardView = (CardView) layout.findViewById(R.id.list_item_card_view);
+    cardView = layout.findViewById(R.id.list_item_card_view);
     profile = (ImageView) layout.findViewById(R.id.list_item_representative_image);
     name = (TextView) layout.findViewById(R.id.list_item_representative_name);
     role = (TextView) layout.findViewById(R.id.list_item_representative_position);
     party = (TextView) layout.findViewById(R.id.list_item_representative_party);
-    email = (TextView) layout.findViewById(R.id.list_item_email);
-    website = (TextView) layout.findViewById(R.id.list_item_website);
+    email = (ImageView) layout.findViewById(R.id.list_item_email);
+    website = (ImageView) layout.findViewById(R.id.list_item_website);
 
     this.context = context;
     this.listener = listener;
@@ -43,16 +43,19 @@ public class ListItemController {
   }
 
   public void configureWithDataItem(final CongressPerson congressPerson, final int position) {
-    profile.setImageDrawable(ContextCompat.getDrawable(context, congressPerson.profile_resource_id));
-    name.setText(congressPerson.name);
-    role.setText(congressPerson.position);
-    party.setText(congressPerson.party);
-    
+    Picasso.with(context)
+      .load(congressPerson.profile_url)
+      .transform(new CropCircleTransformation())
+      .into(profile);
+    name.setText(congressPerson.getFullName());
+    role.setText(congressPerson.getFullPosition());
+    party.setText(congressPerson.getFullParty());
+
     email.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(congressPerson.email));
+        i.setData(Uri.parse(congressPerson.getEmailLink()));
         context.startActivity(i);
       }
     });
@@ -60,7 +63,7 @@ public class ListItemController {
       @Override
       public void onClick(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(congressPerson.website_url));
+        i.setData(Uri.parse(congressPerson.website));
         context.startActivity(i);
       }
     });

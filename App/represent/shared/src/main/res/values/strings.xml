@@ -1,0 +1,9 @@
+<resources>
+    <string name="representative">House Representative</string>
+    <string name="senator">Senator</string>
+
+    <string name="republican">Republican</string>
+    <string name="democrat">Democrat</string>
+    <string name="independent">Independent</string>
+    <string name="other_party">Other</string>
+</resources>

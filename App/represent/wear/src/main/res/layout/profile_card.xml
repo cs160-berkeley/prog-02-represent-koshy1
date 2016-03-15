@@ -1,83 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingBottom="@dimen/card_padding"
+    android:clipChildren="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/represent_red"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/profile_card"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="10dp"
-        android:elevation="7dp"
+        android:elevation="@dimen/common_elevation"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/common_element_large_spacing"
+        android:layout_margin="@dimen/common_element_spacing"
         android:background="@color/white">
 
         <TextView
             android:id="@+id/profile_card_representative_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
+            android:layout_marginBottom="@dimen/common_element_spacing"
+            android:textSize="@dimen/title_text_size"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/represent_red" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/profile_card_representative_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:textColor="@color/text_dark_gray"
+            android:layout_marginBottom="@dimen/common_element_spacing"
+            android:textSize="@dimen/small_body_text_size" />
 
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_medium_gray"
-                android:textSize="14sp"
-                android:layout_marginRight="5dp"
-                android:text="@string/profile_card_position_label_text"/>
-
-            <TextView
-                android:id="@+id/profile_card_representative_position"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_dark_gray"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/profile_card_representative_party"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:textColor="@color/text_dark_gray"
+            android:layout_marginBottom="@dimen/common_element_spacing"
+            android:textSize="@dimen/small_body_text_size" />
 
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_medium_gray"
-                android:textSize="14sp"
-                android:layout_marginRight="5dp"
-                android:text="@string/profile_card_party_label_text"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_element_spacing">
 
-            <TextView
-                android:id="@+id/profile_card_representative_party"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_dark_gray"
-                android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/profile_card_website"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:padding="@dimen/common_element_spacing"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="@dimen/common_element_spacing"
+                android:src="@drawable/web" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/profile_card_email"
+                android:layout_toLeftOf="@id/profile_card_website"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:padding="@dimen/common_element_spacing"
+                android:src="@drawable/email" />
 
-        <ImageView
-            android:id="@+id/profile_card_button"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@drawable/open_on_phone_icon"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_body_text_size"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/represent_red"
+            android:text="@string/profile_card_action_text" />
 
     </LinearLayout>
 

@@ -4,7 +4,7 @@ import android.view.View;
 
 public class BlockTouchController {
   private static View touchInterceptor;
-  
+
   public static void setTouchInterceptor(View touchInterceptor) {
     BlockTouchController.touchInterceptor = touchInterceptor;
   }

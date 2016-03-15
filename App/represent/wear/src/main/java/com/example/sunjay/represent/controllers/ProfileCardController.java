@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
-import com.example.sunjay.represent.models.CongressPerson;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CongressPerson;
 
 public class ProfileCardController {
   private ProfileCardControllerListener listener;
@@ -14,7 +14,9 @@ public class ProfileCardController {
   private TextView name;
   private TextView role;
   private TextView party;
-  private ImageView openOnPhoneButton;
+  private ImageView openWebsiteButton;
+  private ImageView openEmailButton;
+  private View card;
 
   private Context context;
 
@@ -22,7 +24,9 @@ public class ProfileCardController {
     name = (TextView) layout.findViewById(R.id.profile_card_representative_name);
     role = (TextView) layout.findViewById(R.id.profile_card_representative_position);
     party = (TextView) layout.findViewById(R.id.profile_card_representative_party);
-    openOnPhoneButton = (ImageView) layout.findViewById(R.id.profile_card_button);
+    openWebsiteButton = (ImageView) layout.findViewById(R.id.profile_card_website);
+    openEmailButton = (ImageView) layout.findViewById(R.id.profile_card_email);
+    card = layout.findViewById(R.id.profile_card);
 
     this.context = context;
     this.listener = listener;
@@ -33,10 +37,10 @@ public class ProfileCardController {
   }
 
   public void configureWithDataItem(final CongressPerson congressPerson) {
-    name.setText(congressPerson.name);
-    role.setText(congressPerson.position);
-    party.setText(congressPerson.party);
-    openOnPhoneButton.setOnClickListener(new View.OnClickListener() {
+    name.setText(congressPerson.getFullName());
+    role.setText(congressPerson.getFullPosition());
+    party.setText(congressPerson.getFullParty());
+    card.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         if (listener != null) {
@@ -44,9 +48,27 @@ public class ProfileCardController {
         }
       }
     });
+    openEmailButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (listener != null) {
+          listener.onEmailClick(congressPerson, ProfileCardController.this);
+        }
+      }
+    });
+    openWebsiteButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (listener != null) {
+          listener.onWebsiteClick(congressPerson, ProfileCardController.this);
+        }
+      }
+    });
   }
 
   public interface ProfileCardControllerListener {
     void onButtonClick(CongressPerson congressPerson, ProfileCardController listItemController);
+    void onEmailClick(CongressPerson congressPerson, ProfileCardController listItemController);
+    void onWebsiteClick(CongressPerson congressPerson, ProfileCardController listItemController);
   }
 }

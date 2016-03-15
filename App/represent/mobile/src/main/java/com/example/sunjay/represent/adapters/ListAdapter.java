@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 
 import com.example.sunjay.represent.R;
 import com.example.sunjay.represent.controllers.ListItemController;
-import com.example.sunjay.represent.models.CongressPerson;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CongressPerson;
 
 import java.util.ArrayList;
 

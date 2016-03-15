@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Represent</string>
+    <string name="google_app_id">565903751763</string>
+
+    <string name="activity_main_location_error_title">Error</string>
+    <string name="activity_main_location_error_message">Please allow Represent to access your location.</string>
 
     <string name="fragment_onboarding_zip_code_label_text">Zip code</string>
     <string name="fragment_onboarding_zip_code_entry_hint">94087</string>
@@ -13,10 +17,10 @@
     <string name="party_label_text">Party</string>
     <string name="end_date_label_text">Term End Date</string>
 
-    <string name="email_label_text">EMAIL</string>
-    <string name="website_label_text">WEBSITE</string>
-
     <string name="twitter_card_title">Twitter</string>
     <string name="committees_card_title">Committees</string>
     <string name="recent_bills_card_title">Recent Bills</string>
+
+    <string name="loading_screen_error_title">Loading Error</string>
+    <string name="loading_screen_action_button_text">Retry</string>
 </resources>

@@ -1,27 +1,37 @@
 package com.example.sunjay.represent;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
+
 import com.example.sunjay.represent.controllers.BlockTouchController;
 import com.example.sunjay.represent.fragments.DetailFragment;
 import com.example.sunjay.represent.fragments.ListFragment;
 import com.example.sunjay.represent.fragments.OnboardingFragment;
-import com.example.sunjay.represent.models.CongressPerson;
+import com.example.sunjay.represent.services.API;
 import com.example.sunjay.represent.services.PhoneListenerService;
-import com.example.sunjay.represent.util.IntentUtil;
+import com.example.sunjay.represent.shared.models.ZipCodeItem;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CongressPerson;
+import com.example.sunjay.represent.shared.util.IntentUtil;
 
-public class MainActivity extends Activity implements OnboardingFragment.OnboardingFragmentListener, ListFragment.ListFragmentListener {
+import java.util.List;
+import java.util.Random;
+
+public class MainActivity extends Activity implements OnboardingFragment.OnboardingFragmentListener, ListFragment.ListFragmentListener{
+  private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
+
   private OnboardingFragment onboardingFragment;
   private ListFragment listFragment;
   private DetailFragment detailFragment;
-
   private BroadcastReceiver shakeBroadcastReceiver;
   private BroadcastReceiver openDetailBroadcastReceiver;
 
@@ -29,9 +39,9 @@ public class MainActivity extends Activity implements OnboardingFragment.Onboard
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
     getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.represent_dark_red));
 
+    API.initializeWithContext(this);
     Intent sendIntent = new Intent(this, PhoneListenerService.class);
     startService(sendIntent);
 
@@ -41,30 +51,30 @@ public class MainActivity extends Activity implements OnboardingFragment.Onboard
     shakeBroadcastReceiver = new BroadcastReceiver() {
       @Override
       public void onReceive(Context context, Intent intent) {
-        if (detailFragment != null && detailFragment.isAdded()) {
-          onBackPressed();
-        }
-        if (listFragment != null && listFragment.isAdded()) {
-          String newZipCode = "95014";
-          if (listFragment.getZipCode().equals("95014")) {
-            newZipCode = "94087";
-          }
-          listFragment.updateZipCode(newZipCode);
-        } else {
-          startListFragment("94087");
-        }
+      if (detailFragment != null && detailFragment.isAdded()) {
+        onBackPressed();
+      }
+
+      Random random = new Random();
+      List<ZipCodeItem> zipCodes = API.getAllZipCodes();
+      ZipCodeItem zipCodeItem = zipCodes.get(random.nextInt(zipCodes.size()));
+      if (listFragment != null && listFragment.isAdded()) {
+        listFragment.updateZipCode(zipCodeItem);
+      } else {
+        startListFragment(zipCodeItem);
+      }
       }
     };
 
     openDetailBroadcastReceiver = new BroadcastReceiver() {
       @Override
       public void onReceive(Context context, Intent intent) {
-        CongressPerson congressPerson = intent.getParcelableExtra(IntentUtil.ExtraIdentifiers.ITEM.getValue());
-        if (detailFragment != null && detailFragment.isAdded()) {
-          detailFragment.updateCongressPerson(congressPerson);
-        } else {
-          startDetailFragment(congressPerson);
-        }
+      CongressPerson congressPerson = intent.getParcelableExtra(IntentUtil.ExtraIdentifiers.ITEM.getValue());
+      if (detailFragment != null && detailFragment.isAdded()) {
+        detailFragment.updateCongressPerson(congressPerson);
+      } else {
+        startDetailFragment(congressPerson);
+      }
       }
     };
 
@@ -89,14 +99,22 @@ public class MainActivity extends Activity implements OnboardingFragment.Onboard
   }
 
   @Override
-  public void onSubmitButtonClick(String zipCode, OnboardingFragment fragment) {
-    startListFragment(zipCode);
+  public void onSubmitButtonClick(ZipCodeItem zipCodeItem, OnboardingFragment fragment) {
+    startListFragment(zipCodeItem);
   }
 
-  private void startListFragment(String zipCode) {
-    Bundle args = new Bundle();
-    args.putString(ListFragment.ZIP_CODE_BUNDLE_IDENTIFIER, zipCode);
+  @Override
+  public void onRunBlockIfLocationEnabled(Runnable runnable, OnboardingFragment fragment) {
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+    } else {
+      runnable.run();
+    }
+  }
 
+  private void startListFragment(ZipCodeItem zipCodeItem) {
+    Bundle args = new Bundle();
+    args.putParcelable(ListFragment.ZIP_CODE_ITEM_BUNDLE_IDENTIFIER, zipCodeItem);
     listFragment = new ListFragment();
     listFragment.setArguments(args);
 

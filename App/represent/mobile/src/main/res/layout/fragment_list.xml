@@ -55,4 +55,12 @@
         android:layout_below="@+id/fragment_list_actionbar_container"
         android:paddingTop="15dp" />
 
+    <include
+        android:id="@+id/fragment_list_loading_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fragment_list_actionbar_container"
+        android:layout_alignParentBottom="true"
+        layout="@layout/loading_screen" />
+
 </RelativeLayout>

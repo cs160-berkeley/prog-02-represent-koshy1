@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import android.os.Parcelable;
-import android.util.Log;
-import com.example.sunjay.represent.util.IntentUtil;
-import com.example.sunjay.represent.util.ParcelableUtil;
+import com.example.sunjay.represent.shared.util.IntentUtil;
+import com.example.sunjay.represent.shared.util.ParcelableUtil;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
@@ -87,13 +86,11 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
 
   private void sendMessage(final String path, final Parcelable data) {
     for (Node node : nodes) {
-      Log.d("MESSAGE_SENT", "MESSAGE_SENT");
       Wearable.MessageApi.sendMessage(watchApiClient, node.getId(), path, data != null ? ParcelableUtil.marshall(data) : new byte[0]);
     }
   }
 
   @Override
   public void onConnectionFailed(ConnectionResult connectionResult) {
-
   }
 }

@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import android.os.Parcelable;
-import com.example.sunjay.represent.util.IntentUtil;
-import com.example.sunjay.represent.util.ParcelableUtil;
+import com.example.sunjay.represent.shared.util.IntentUtil;
+import com.example.sunjay.represent.shared.util.ParcelableUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
@@ -50,8 +50,8 @@ public class PhoneToWatchService extends Service {
       new Thread(new Runnable() {
         @Override
         public void run() {
-          apiClient.connect();
-          sendMessage(message, data);
+        apiClient.connect();
+        sendMessage(message, data);
         }
       }).start();
     }

@@ -3,13 +3,16 @@ package com.example.sunjay.represent.controllers;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.sunjay.represent.R;
-import com.example.sunjay.represent.models.CongressPerson;
+import com.example.sunjay.represent.shared.models.sunlightmodels.CongressPerson;
+import com.squareup.picasso.Picasso;
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 public class ProfileCardController {
   private ImageView profile;
@@ -17,8 +20,8 @@ public class ProfileCardController {
   private TextView role;
   private TextView party;
   private TextView termEndDate;
-  private TextView email;
-  private TextView website;
+  private ImageView email;
+  private ImageView website;
 
   private Context context;
 
@@ -28,8 +31,8 @@ public class ProfileCardController {
     role = (TextView) layout.findViewById(R.id.profile_card_position);
     party = (TextView) layout.findViewById(R.id.profile_card_party);
     termEndDate = (TextView) layout.findViewById(R.id.profile_card_end_date);
-    email = (TextView) layout.findViewById(R.id.profile_card_email);
-    website = (TextView) layout.findViewById(R.id.profile_card_website);
+    email = (ImageView) layout.findViewById(R.id.profile_card_email);
+    website = (ImageView) layout.findViewById(R.id.profile_card_website);
 
     this.context = context;
   }
@@ -39,17 +42,23 @@ public class ProfileCardController {
   }
 
   public void configureWithDataItem(final CongressPerson congressPerson) {
-    profile.setImageDrawable(ContextCompat.getDrawable(context, congressPerson.profile_resource_id));
-    name.setText(congressPerson.name);
-    role.setText(congressPerson.position);
-    party.setText(congressPerson.party);
-    termEndDate.setText(congressPerson.endDate);
+    Picasso.with(context)
+      .load(congressPerson.profile_url)
+      .transform(new CropCircleTransformation())
+      .into(profile);
+    profile.requestLayout();
+    name.setText(congressPerson.getFullName());
+    role.setText(congressPerson.getFullPosition());
+    party.setText(congressPerson.getFullParty());
+
+    DateTime termEndDateTime = DateTime.parse(congressPerson.term_end, DateTimeFormat.forPattern("yyy-MM-dd"));
+    termEndDate.setText(DateTimeFormat.forPattern("MMMM d, yyyy").print(termEndDateTime));
 
     email.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(congressPerson.email));
+        i.setData(Uri.parse(congressPerson.getEmailLink()));
         context.startActivity(i);
       }
     });
@@ -57,7 +66,7 @@ public class ProfileCardController {
       @Override
       public void onClick(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(congressPerson.website_url));
+        i.setData(Uri.parse(congressPerson.website));
         context.startActivity(i);
       }
     });

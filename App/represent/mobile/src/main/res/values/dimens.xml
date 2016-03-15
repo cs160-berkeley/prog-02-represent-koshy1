@@ -4,4 +4,16 @@
     <dimen name="action_bar_title_size">20sp</dimen>
     <dimen name="action_bar_item_size">24dp</dimen>
     <dimen name="action_bar_shadow_height">4dp</dimen>
+    <dimen name="large_title_text_size">22sp</dimen>
+    <dimen name="small_title_text_size">20sp</dimen>
+    <dimen name="card_title_text_size">18sp</dimen>
+    <dimen name="large_body_text_size">14sp</dimen>
+    <dimen name="body_text_size">14sp</dimen>
+    <dimen name="body_text_extra_spacing">17sp</dimen>
+    <dimen name="small_body_text_size">12sp</dimen>
+    <dimen name="icon_size">18dp</dimen>
+    <dimen name="small_icon_size">18dp</dimen>
+    <dimen name="common_elevation">2dp</dimen>
+    <dimen name="common_element_spacing">16dp</dimen>
+    <dimen name="label_spacing">2dp</dimen>
 </resources>

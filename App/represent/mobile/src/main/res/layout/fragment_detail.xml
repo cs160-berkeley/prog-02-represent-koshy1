@@ -11,11 +11,11 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-                android:id="@+id/fragment_detail_actionbar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/action_bar_height"
-                android:orientation="horizontal"
-                android:background="@color/represent_red">
+            android:id="@+id/fragment_detail_actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:orientation="horizontal"
+            android:background="@color/represent_red">
 
             <Button
                 android:id="@+id/fragment_detail_back_button"
@@ -54,7 +54,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
 
             <include layout="@layout/profile_card"
                 android:id="@+id/fragment_detail_profile_card"
@@ -84,5 +85,13 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <include
+        android:id="@+id/fragment_detail_loading_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fragment_detail_actionbar_container"
+        android:layout_alignParentBottom="true"
+        layout="@layout/loading_screen" />
 
 </RelativeLayout>

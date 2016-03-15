@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/represent_red">
+
+    <android.support.wearable.view.DotsPageIndicator
+        android:id="@+id/fragment_list_card_page_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/common_element_spacing" />
+
+    <android.support.wearable.view.GridViewPager
+        android:id="@+id/fragment_list_card_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"/>
+
+    <include android:id="@+id/fragment_list_empty_state"
+        layout="@layout/empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
